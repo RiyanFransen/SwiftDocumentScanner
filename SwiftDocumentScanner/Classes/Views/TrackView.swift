@@ -9,8 +9,8 @@ import UIKit
 
 public final class TrackView: UIView {
 
-	public static var lineColor: UIColor = .green
-	public static var fillColor: UIColor = UIColor.green.withAlphaComponent(0.5)
+	public static var lineColor: UIColor = .blue
+	public static var fillColor: UIColor = UIColor.blue.withAlphaComponent(0.5)
 	public static var lineWidth: CGFloat = 2
 
 	private var shape = CAShapeLayer()
@@ -32,6 +32,7 @@ public final class TrackView: UIView {
 		shape.strokeColor = TrackView.lineColor.cgColor
 		shape.fillColor = TrackView.fillColor.cgColor
 		shape.lineWidth = TrackView.lineWidth
+		shape.cornerRadius = 10
 
 		layer.addSublayer(shape)
 	}
