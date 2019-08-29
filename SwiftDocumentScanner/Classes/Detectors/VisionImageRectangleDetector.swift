@@ -15,16 +15,21 @@ public final class VisionImageRectangleDetector: ImageRectangleDetector {
 
 	private var completionHandler: Completion?
 
+	var roi: CGRect
+
+	init(roi: CGRect = CGRect(x: 0, y: 0, width: 1, height: 1)) {
+		self.roi = roi
+	}
+
 	public func detect(image: UIImage, completion: @escaping Completion) {
 		guard let cgImage = image.cgImage else { return }
 
 		let request = VNDetectRectanglesRequest(completionHandler: handleRequest)
-//		request.minimumAspectRatio = 0
 		request.quadratureTolerance = 45
-//		request.preferBackgroundProcessing = true
 		request.minimumAspectRatio = VNAspectRatio(0.6)
 		request.minimumAspectRatio = VNAspectRatio(0.7)
 		request.maximumObservations = 1
+		request.regionOfInterest = roi
 
 		let handler = VNImageRequestHandler(cgImage: cgImage, options: [:])
 
