@@ -20,7 +20,7 @@ public final class VisionImageRectangleDetector: ImageRectangleDetector {
 
 		let request = VNDetectRectanglesRequest(completionHandler: handleRequest)
 //		request.minimumAspectRatio = 0
-//		request.quadratureTolerance = 45
+		request.quadratureTolerance = 45
 //		request.preferBackgroundProcessing = true
 		request.minimumAspectRatio = VNAspectRatio(0.6)
 		request.minimumAspectRatio = VNAspectRatio(0.7)
