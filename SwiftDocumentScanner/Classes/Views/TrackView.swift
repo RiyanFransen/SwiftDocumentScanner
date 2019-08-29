@@ -48,7 +48,13 @@ public final class TrackView: UIView {
 
 	func update(path: UIBezierPath?) {
 		if let path = path {
-			shape.path = path.cgPath
+			let animation = CABasicAnimation(keyPath: "animate")
+			animation.duration = CFTimeInterval(0.2)
+			animation.fromValue = shape.path
+			animation.toValue = path.cgPath
+
+			shape.animation(forKey: "animate")
+//			shape.path = path.cgPath
 		} else {
 			shape.path = nil
 		}
