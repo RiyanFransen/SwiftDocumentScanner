@@ -26,7 +26,7 @@ public final class AutoDetector {
 
 		public var threshold: CGFloat // maximum deviation of points
 
-		public static var `default` = Config(minCorrectFrames: 8, maxDroppedFrames: 5, frameBufferSize: 64, threshold: 0.05)
+		public static var `default` = Config(minCorrectFrames: 16, maxDroppedFrames: 8, frameBufferSize: 32, threshold: 0.05)
 	}
 
 	public weak var delegate: AutoDetectorDelegate?
