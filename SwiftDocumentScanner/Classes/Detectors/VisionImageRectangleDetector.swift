@@ -15,9 +15,9 @@ public final class VisionImageRectangleDetector: ImageRectangleDetector {
 
 	private var completionHandler: Completion?
 
-	var roi: CGRect
+	public var roi: CGRect
 
-	init(roi: CGRect = CGRect(x: 0, y: 0, width: 1, height: 1)) {
+	public init(roi: CGRect = CGRect(x: 0, y: 0, width: 1, height: 1)) {
 		self.roi = roi
 	}
 

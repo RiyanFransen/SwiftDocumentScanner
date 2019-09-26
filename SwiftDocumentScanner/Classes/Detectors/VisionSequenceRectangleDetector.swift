@@ -16,17 +16,24 @@ public final class VisionSequenceRectangleDetector: SequenceRectangleDetector {
 	private var data: [NSObject: CVPixelBuffer] = [:]
 	public var update: Update?
 
+	public var roi: CGRect
+
+	public init(roi: CGRect = CGRect(x: 0, y: 0, width: 1, height: 1)) {
+		self.roi = roi
+	}
+
 	private lazy var visionRequestHandler = VNSequenceRequestHandler()
 
 	public func detect(on pixelBuffer: CVPixelBuffer) {
 		let request = VNDetectRectanglesRequest(completionHandler: handle)
 		request.minimumConfidence = 0.5
-		request.maximumObservations = 4
-		request.minimumSize = 0.2
-		request.minimumAspectRatio = 0.2
-		request.maximumAspectRatio = 1
+		request.maximumObservations = 1
+//		request.minimumSize = 0.2
+		request.minimumAspectRatio = VNAspectRatio(0.5)
+		request.maximumAspectRatio = VNAspectRatio(0.8)
 		request.quadratureTolerance = 45
 		request.preferBackgroundProcessing = true
+		request.regionOfInterest = roi
 
 		execute(request: request, buffer: pixelBuffer)
 	}

@@ -35,7 +35,7 @@ open class CameraViewController: UIViewController, AVCaptureVideoDataOutputSampl
     private var queue = DispatchQueue(label: "com.jonasbeckers.camera")
 
     private(set) var session: AVCaptureSession = AVCaptureSession()
-    private(set) var previewLayer: AVCaptureVideoPreviewLayer?
+    private(set) public var previewLayer: AVCaptureVideoPreviewLayer?
 
     private var captureDevice: AVCaptureDevice?
     private var captureDeviceInput: AVCaptureDeviceInput?
