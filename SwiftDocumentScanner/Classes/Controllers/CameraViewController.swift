@@ -59,13 +59,14 @@ open class CameraViewController: UIViewController, AVCaptureVideoDataOutputSampl
             configureSession()
             cameraDelegate?.cameraViewController(update: status)
         case .notDetermined:
-            AVCaptureDevice.requestAccess(for: .video) { [unowned self] granted in
-                let newStatus = AVCaptureDevice.authorizationStatus(for: .video)
-                if granted {
-                    self.configureSession()
-                }
-                self.cameraDelegate?.cameraViewController(update: newStatus)
-            }
+//            AVCaptureDevice.requestAccess(for: .video) { [unowned self] granted in
+//                let newStatus = AVCaptureDevice.authorizationStatus(for: .video)
+//                if granted {
+//                    self.configureSession()
+//                }
+//                self.cameraDelegate?.cameraViewController(update: newStatus)
+//            }
+            ()
         default:
             cameraDelegate?.cameraViewController(update: status)
         }
