@@ -9,8 +9,8 @@ import UIKit
 
 public final class TrackView: UIView {
 
-	public static var lineColor: UIColor = .blue
-	public static var fillColor: UIColor = UIColor.blue.withAlphaComponent(0.3)
+	public static var lineColor: UIColor = UIColor(red:1.00, green:0.49, blue:0.49, alpha:1.0)
+	public static var fillColor: UIColor = UIColor(red:0.44, green:0.30, blue:0.89, alpha:0.3)
 	public static var lineWidth: CGFloat = 2
 
 	private var shape = CAShapeLayer()
